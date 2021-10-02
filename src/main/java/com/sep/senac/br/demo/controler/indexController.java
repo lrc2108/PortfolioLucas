@@ -12,5 +12,10 @@ public class indexController {
     @GetMapping("/sobre")
     public String paginaSobre() { return "sobre";}
 
+    @GetMapping("/tabela_periodica")
+    public  String paginaTabelaPeriodica(){
+        return "tabela_periodica";
+    }
+
 
 }

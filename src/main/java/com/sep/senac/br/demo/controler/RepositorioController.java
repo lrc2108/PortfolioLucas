@@ -9,21 +9,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class RepositorioController {
 
     @GetMapping("/cadastro_repositorio")
     public ModelAndView paginaCadastroRepositorio(RepositorioEntity repositorio){
         ModelAndView mv = new ModelAndView("cadastro_repositorio");
-        mv.addObject("repositorio", repositorio);
+        mv.addObject("repositorios", repositorio);
         return mv;
     }
     @Autowired
     private RepositorioDAO dao;
-    @PostMapping("/salvarRepositorio")
-    public String salvarRepostorio(@ModelAttribute RepositorioEntity repositorio){
-        dao.save(repositorio);
+    @PostMapping("/salvar_Repositorios")
+    public String salvarRepostorio(@ModelAttribute RepositorioEntity repositorios){
+        dao.save(repositorios);
         return "index";
+    }
+
+    @GetMapping("repositorios")
+    public ModelAndView paginaRepositorios(){
+        List<RepositorioEntity> listaRepositorios = dao.findAll();
+
+        ModelAndView mv = new ModelAndView("repositorios");
+        mv.addObject("repositorios", listaRepositorios);
+        return mv;
     }
 
 

@@ -3,7 +3,7 @@ package com.sep.senac.br.demo.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "repositorio")
+@Table(name= "repositorios")
 public class RepositorioEntity {
 
     @Id

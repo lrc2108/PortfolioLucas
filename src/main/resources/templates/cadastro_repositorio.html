@@ -5,7 +5,7 @@
         <title>Cadastro do Repositorio</title>
     </head>
     <body>
-        <form th:Object="${repositorio}" th:action="@{/salvarRepositorio}" method="post">
+        <form th:Object="${repositorios}" th:action="@{/salvar_Repositorios}" method="post">
             <label for="url">Url do repositório:</label>
             <input type="text" id="url" name="url" th:field="*{url}">
 
